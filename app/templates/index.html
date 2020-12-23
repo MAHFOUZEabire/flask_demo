@@ -1,23 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>{% block title %} Movies List {% endblock %}</h1>
+    
+    <h1> <img src="../static/image/movies.ico" alt="movies" style="width:90px; height:90px;"></h1>
+   
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>TITRES</th>
                 <th>Genre</th>
+                <th> Supprimer</th>
             </tr>
         </thead>  
     
     {% for movie in movies %}
     <TR>
         <TD class="c2">{{movie['title']}}</TD>
-        <TD class="c3">{{movie['genres']}}</TD>    
+        <TD class="c3">{{movie['genres']}}</TD> 
+        <TD class="c3"> <a href="{{ url_for('delete', id=movie['movieId']) }}" ><img src="../static/image/delete.jpg" alt="supprimer" style="width: 30px; height: 30px;"></a> </TD>    
     </TR>
     {% endfor %}
     </table>
 
-<a href="/add" class="btn btn-success">ADD movies</a>
+<a href="/add" class="btn btn-success btn-lg" style="background-color: #4b617a;font-weight:bolder">Create</a>
     
         
 {% endblock %}

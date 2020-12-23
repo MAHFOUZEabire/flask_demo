@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{% block title %} Movies List {% endblock %}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>TITRES</th>
+                <th>Genre</th>
+            </tr>
+        </thead>  
+    
+    {% for movie in movies %}
+    <TR>
+        <TD class="c2">{{movie['title']}}</TD>
+        <TD class="c3">{{movie['genres']}}</TD>    
+    </TR>
+    {% endfor %}
+    </table>
+
+<a href="/add" class="btn btn-success">ADD movies</a>
+    
+        
+{% endblock %}
+
+
